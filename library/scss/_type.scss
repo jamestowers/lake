@@ -1,0 +1,134 @@
+
+@font-face {
+  font-family: 'dropshop';
+  src:url('../fonts/dropshop.eot');
+  src:url('../fonts/dropshop.eot?#iefix-yv5vq3') format('embedded-opentype'),
+    url('../fonts/dropshop.woff') format('woff'),
+    url('../fonts/dropshop.ttf') format('truetype'),
+    url('../fonts/dropshop.svg#dropshop') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nevis';
+  src: url('../fonts/nevis.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/nevis.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/nevis.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/nevis.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/nevis.svg#ef843a52bd54509ccc4de6f0ee848fc5') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+html{
+  font-size:  62%;
+}
+body {
+  font-family: $font-body;
+  @include font-size(1.6);
+  line-height: 1.4;
+  color:$grey2;
+  text-rendering: optimizeLegibility;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+p{
+
+}
+
+small,
+.small{
+  @include font-size(1.2);
+}
+
+/*********************
+LINK STYLES
+*********************/
+
+a{
+  color: $color-link;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.47, 0.94, 0.4, 1.96);
+  /* on hover */
+  &:hover{
+    color: $color-link-hover;
+  }
+
+  /* on click */
+  &:active {
+
+  }
+
+  /* mobile tap color */
+  &:link {
+    /*
+    this highlights links on iPhones/iPads.
+    so it basically works like the :hover selector
+    for mobile devices.
+    */
+    -webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+  }
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  font-family: $font-header;
+  font-weight: $font-weight-normal;
+  text-transform: uppercase;
+  color:$grey2;
+  a{
+    color:$grey2;
+    &:hover{
+      color:$grey3;
+    }
+  }
+  /*
+  if you're going to use webfonts, be sure to check your weights
+  http://css-tricks.com/watch-your-font-weight/
+  */
+}
+
+h1, .h1 {
+  @include font-size(3.4);
+  @include line-height(3);
+  margin: 0 0 $padding;
+}
+.page-title{
+  display: inline-block;
+  transition: transform 0.2s ease-out;
+}
+
+h2, .h2 {
+  @include font-size(2.8);
+  @include line-height(3);
+  margin: 0 0 1rem;
+}
+
+h3, .h3 {
+  @include font-size(2.4);
+  margin: 0 0 15px;
+}
+
+h4, .h4 {
+  @include font-size(1.1);
+  font-weight: 700;
+}
+
+h5, .h5 {
+  @include line-height(2);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+} 
+
+blockquote{
+  font-style: italic;
+  @include font-size(2);
+}

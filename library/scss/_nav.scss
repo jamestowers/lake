@@ -1,0 +1,138 @@
+/* MOBILE ONLY KEEP IT SMALL!! */
+
+
+/* =========
+Responsive slide out menu 
+============ */
+.slide-from-right{
+  #wrapper{
+    transform: translateX(-80%);
+  }
+  nav#nav-header{
+    //transform: translateX(100%);
+  }
+  a#menu-toggle{
+    span{
+      height:0;
+    }
+    span:before{
+      transform: rotate(45deg);
+      top: -2px
+    }
+    span:after{
+      transform: rotate(-45deg);
+      bottom: -2px;
+    }
+  }
+}
+
+
+a#menu-toggle{
+  display: block;
+  height: 24px;
+  padding: 10px;
+  position: fixed;
+  right: 4px;
+  top: 20px;
+  transform: translateY(-50%);
+  z-index: 11;
+  span,
+  span:before,
+  span:after{
+    background:$grey6;
+    height:4px;
+    width:20px;
+    display:block;
+  }
+  span{
+    position: relative;
+    &:before,
+    &:after{
+      position: absolute;
+      left: 0;
+      content: '';
+    }
+    &:before{
+      top:-7px
+    }
+    &:after{
+      bottom: -7px;
+    }
+  }
+}
+
+nav{
+  clear: both;
+  text-align: center;
+  &#nav-header{
+    background:$grey2;
+    color:$white;
+    position: fixed;
+    text-transform: uppercase;
+    height:100%;
+    right: 0;
+    top:0;
+    width:80%;
+    //transform: translateX(100%);
+    transition: transform 0.2s ease-out;
+    z-index: -1;
+    li{
+      border-bottom: 1px solid $grey4;
+      &.current-menu-item{
+        a{
+          background:$grey4;
+        }
+      }
+      a{
+        font-family: $font-header;
+        &:hover{
+          //background: $grey3;
+          color:$white;
+        }
+      }
+      &.menu-item-has-children{
+        /* It's probabaly best to just hide sub nav and link straihght to the top level page. Y
+        You can show the child pages there on mobiles. */
+        ul.sub-menu{
+          display:none;
+        }
+      }
+    } 
+  }
+  &#nav-footer{
+    display: none;
+  }
+  &.pagination{
+    ul.page-numbers{
+      padding-left:0 !important;
+      li{
+        display:inline-block;
+        .page-numbers{
+          background:$color-primary;
+          color:$white;
+          padding: 7px 15px;
+          display:block;
+          a{
+            color:$white;
+          }
+          &.current{
+            background:$color-secondary;
+          }
+        }
+      }
+    }
+  }
+  ul{
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display:block;
+    a {
+      display: block;
+      color:$white;
+      text-decoration: none;
+      padding: $padding;
+    }
+  }
+}

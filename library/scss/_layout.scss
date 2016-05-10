@@ -1,0 +1,180 @@
+
+/*********************
+ELEMENTS
+*********************/
+
+.scrolled{
+  .header #nav-header{
+    background:$black;
+    position: fixed;
+    width:100%;
+    left:0;
+    top:0;
+    padding: 4px;
+    z-index: 10;
+    animation: animate-from-top 0.2s 1 0;
+  }
+  #content{
+    margin-top:44px;
+  }
+}
+
+#logo-svg{
+  max-width: 100%;
+  max-height: 100%;
+  path, 
+  polyline{
+    stroke-dasharray: 1210;
+    stroke-dashoffset: 1210;
+    animation: logo-outline 2s 1 cubic-bezier(.79,.14,.15,.86) forwards;
+    fill: transparent;
+    transition: all 0.4s ease-in;
+  }
+  &.animated{
+    path,
+    polyline{
+      fill: $white;
+      stroke:$color-primary;
+    }
+  }
+}
+#scroll-arrow{
+  position: absolute;
+  bottom: 10px;
+  left:50%;
+  margin-left:-21px;
+  svg{
+    max-width: 100%;
+    path, 
+    polyline{
+      stroke-dasharray: 444;
+      stroke-dashoffset: 444;
+      //animation: arrow-outline 2s cubic-bezier(.79,.14,.15,.86) forwards 2.4s;
+      fill: transparent;
+      transition: all 0.4s ease-in;
+    }
+  }
+}
+@keyframes logo-outline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes arrow-outline {
+  to {
+    stroke-dasharray: 144;
+    stroke-dashoffset: 0;;
+  }
+}
+header.header{
+  background:$black;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  //transition: margin-top 0.2s ease-out;
+  #logo{
+    width:240px;
+    height:50px;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+    img{
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .social-icons{
+    display: none;
+  }
+}
+.home{
+  header.header{
+    display: none;
+    margin-top: -93px;
+  }
+}
+footer.footer{
+  clear: both;
+  text-align: center;
+  background:$grey1;
+  padding: 10px;
+  min-height:140px; // Should be equal to #content padding-bottom to keep it at the bottom of page 
+  // (should be just height, not sure about using min-height...)
+  // Below is necesary to kee it at bottom 
+  // see: http://cssreset.com/how-to-keep-footer-at-bottom-of-page-with-css/
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.social-icons{
+  a{
+    
+  }
+}
+
+div#wrapper {
+  
+  width: 100%;
+  min-height:100%;
+  margin: 0 auto;
+  transition: transform 0.2s ease-out;
+  position: relative;
+}
+
+#content{
+  background:$white;
+  display: flex;
+  flex-direction: column;
+  clear:both;
+  position: relative;
+  padding-bottom: 140px;
+  transition: transform 0.2s ease;
+}
+section{
+  &.page{
+    min-height:400px;
+    border-bottom: 1px solid $grey6;
+    padding: 60px 0;
+    h1{
+      color:$color-primary;
+    }
+  }
+}
+.home{
+  section{
+    &.page{
+      &:nth-child(odd){
+        background:$color-primary;
+        color:$white;
+        h1, h2, h3, h4{
+          color:$white;
+        }
+        .social-icons{
+          a{
+            color:$white;
+          }
+        }
+      }
+    }
+  }
+}
+.single-column{
+  .embeds{
+    iframe{
+      float: left;
+      width: 48%;
+      margin: 1%;
+    }
+  }
+}
+.sidebar{
+  background: $grey8;
+  height:100%;
+}
+aside{
+  width:100%;
+  clear:both;
+}

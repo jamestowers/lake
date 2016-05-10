@@ -1,0 +1,229 @@
+.hide-on-mobile{
+  display: inline;
+  visibility: visible;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+header.header > .social-icons{
+  display: block;
+  position: absolute;
+  top:4px;
+  right:4px;
+  z-index: 11;
+  a{
+    color:$white;
+    font-size: 3rem;
+  }
+}
+
+
+
+section{
+  &.page{
+    padding: 100px 20px;
+    min-height:600px;
+  }
+}
+
+
+.home{
+  #content{
+    & > .social-icons{
+      position: absolute;
+      top:0;
+      right:10px;
+      z-index: 11;
+    }
+  }
+}
+
+
+/*********************
+NAVIGATION STYLES
+*********************/
+a#menu-toggle{
+	display:none;
+}
+nav{
+  &#nav-header{
+    background:none;
+  	color:$grey2;
+  	height:auto;
+  	z-index: 1;
+  	position: relative;
+  	left: auto;
+  	top:auto;
+    transform: translateX(0);
+  	width:100%;
+    .nav li{
+      border-bottom: none;
+      &:not(:last-child){
+        //border-right: 1px solid $white;
+      }
+      a{
+        //border: 2px solid $white;
+        color:$white;
+        @include font-size(2);
+        padding: 10px 14px;
+        margin: 0 10px;
+        overflow: hidden;
+        position: relative;
+        &:after{
+          background:rgba(255, 255, 255, 0.8);
+          display: block;
+          content: '';
+          width: 0;
+          height: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: all 0.3s;
+          position: absolute;
+          z-index: -1;
+          //transform: translateX(-50%) translateY(-50%);
+        }
+        /* &.clicked{
+          &:after{
+            transform: translateX(-50%) translateY(-50%);
+            height:300%;
+          }
+        } */
+        &:hover{
+          color:$black;
+          &:after{
+            //transform: translateX(-50%) translateY(-50%);
+            width:100%;
+            opacity:1;
+          }
+        }
+      }
+      &.current-menu-item{
+        a{
+          background:none;
+        }
+      }
+      &.menu-item-has-children{
+        /* It's probabaly best to just hide sub nav and link straihght to the top level page. Y
+        You can show the child pages there on mobiles. */
+        position: relative;
+        ul.sub-menu{
+          display:none;
+          background:$grey7;
+          position: absolute;
+          top:100%;
+          left:0;
+          li{
+            width:100%;
+          }
+        }
+        &:hover{
+          ul.sub-menu{
+            display:block;
+          }
+        }
+      }
+    }
+  }
+  &#nav-footer{
+    a {
+      @include font-size(1.2); 
+    }
+  }
+  @include font-size(0); // Fighting the space betwen inline-block items
+  li {
+    display:inline-block;
+    vertical-align: top;
+    a {
+      @include font-size(1.4); // !!Important. Must have a size set here because of inlineblock spacing bug above
+    }
+  }
+}
+
+
+
+
+
+
+
+
+/*********************
+HERO
+*********************/
+
+.hero-container{
+  min-height: 400px;
+  width:100%;
+}
+.video-wrapper{
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  &.playing{
+    
+  }
+  iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+#top-banner{
+  nav#nav-header{
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translateX(-50%) translateY(110px);
+    a{
+      //color:$color-primary;
+      font-weight: $font-weight-bold;
+    }
+    .social-icons{
+      li{
+        border: none;
+      }
+      a{
+        color:$white;
+        &:hover{
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+/*********************
+WIDGETS
+*********************/
+div#footer-asides{
+  display: flex;
+  aside{
+    background:$grey5;
+    color:$grey3;
+    border-bottom: none;
+    &:not(:last-child){
+      border-right: 1px solid $grey4;
+    }
+    .widgettitle{
+      color:$white;
+    }
+  }
+}
