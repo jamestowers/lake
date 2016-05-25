@@ -481,14 +481,11 @@ iframe {
 table {
   width: 100%; }
   table th {
-    background: #555;
     text-align: left;
     color: #FFF;
     cursor: pointer; }
-  table tr:nth-child(odd) {
-    background: #E8E8E8; }
   table tr a {
-    color: #222; }
+    color: #204A7E; }
 
 section {
   clear: both; }
@@ -684,6 +681,9 @@ GRID
 /*********************
 ELEMENTS
 *********************/
+body {
+  background: #040909; }
+
 .scrolled .header #nav-header {
   background: #000;
   position: fixed;
@@ -699,7 +699,7 @@ ELEMENTS
   margin-top: 44px; }
 
 #logo-svg {
-  max-width: 100%;
+  max-width: 600px;
   max-height: 100%; }
   #logo-svg path,
   #logo-svg polyline {
@@ -712,7 +712,7 @@ ELEMENTS
   #logo-svg.animated path,
   #logo-svg.animated polyline {
     fill: #FFF;
-    stroke: #021B44; }
+    stroke: #FFF; }
 
 #scroll-arrow {
   position: absolute;
@@ -771,7 +771,7 @@ header.header {
 footer.footer {
   clear: both;
   text-align: center;
-  background: #131009;
+  background: #040909;
   padding: 10px;
   min-height: 140px;
   width: 100%;
@@ -789,7 +789,6 @@ div#wrapper {
   position: relative; }
 
 #content {
-  background: #FFF;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -805,18 +804,21 @@ div#wrapper {
 
 section.page {
   min-height: 400px;
-  border-bottom: 1px solid #CCC;
   padding: 60px 0; }
-  section.page h1 {
-    color: #021B44; }
 
-.home section.page:nth-child(odd) {
-  background: #021B44;
-  color: #FFF; }
-  .home section.page:nth-child(odd) h1, .home section.page:nth-child(odd) h2, .home section.page:nth-child(odd) h3, .home section.page:nth-child(odd) h4 {
+.home section.page {
+  position: relative; }
+  .home section.page .hero-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; }
+  .home section.page:nth-child(odd) {
     color: #FFF; }
-  .home section.page:nth-child(odd) .social-icons a {
-    color: #FFF; }
+    .home section.page:nth-child(odd) h1, .home section.page:nth-child(odd) h2, .home section.page:nth-child(odd) h3, .home section.page:nth-child(odd) h4 {
+      color: #FFF; }
+    .home section.page:nth-child(odd) .social-icons a {
+      color: #FFF; }
 
 .single-column .embeds iframe {
   float: left;
@@ -1073,14 +1075,14 @@ nav {
     nav.pagination ul.page-numbers li {
       display: inline-block; }
       nav.pagination ul.page-numbers li .page-numbers {
-        background: #021B44;
+        background: #204A7E;
         color: #FFF;
         padding: 7px 15px;
         display: block; }
         nav.pagination ul.page-numbers li .page-numbers a {
           color: #FFF; }
         nav.pagination ul.page-numbers li .page-numbers.current {
-          background: black; }
+          background: #0b1a2d; }
   nav ul {
     margin: 0;
     padding: 0; }
@@ -1091,6 +1093,30 @@ nav {
       color: #FFF;
       text-decoration: none;
       padding: 10px; }
+
+.gallery dl {
+  float: left;
+  width: 100%;
+  margin: 5px 0; }
+
+.gallery br {
+  display: none; }
+
+.gallery img {
+  display: block; }
+
+@media only screen and (min-width: 768px) {
+  .gallery dl {
+    width: 49%;
+    margin-right: 1%; } }
+
+@media only screen and (min-width: 1030px) {
+  .gallery dl {
+    width: 24%; } }
+
+@media only screen and (min-width: 1640px) {
+  .gallery dl {
+    width: 19%; } }
 
 @font-face {
   font-family: 'dropshop';
@@ -1116,7 +1142,7 @@ body {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.4;
-  color: #222;
+  color: #FFF;
   text-rendering: optimizeLegibility;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
@@ -1131,14 +1157,14 @@ small,
 LINK STYLES
 *********************/
 a {
-  color: #021B44;
+  color: #204A7E;
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.47, 0.94, 0.4, 1.96);
   /* on hover */
   /* on click */
   /* mobile tap color */ }
   a:hover {
-    color: #032967; }
+    color: #275b9a; }
   a:link {
     /*
     this highlights links on iPhones/iPads.
@@ -1154,15 +1180,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   font-family: "nevis", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
-  color: #222;
   /*
   if you're going to use webfonts, be sure to check your weights
   http://css-tricks.com/watch-your-font-weight/
   */ }
-  h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
-    color: #222; }
-    h1 a:hover, .h1 a:hover, h2 a:hover, .h2 a:hover, h3 a:hover, .h3 a:hover, h4 a:hover, .h4 a:hover, h5 a:hover, .h5 a:hover {
-      color: #373737; }
+  h1 a:hover, .h1 a:hover, h2 a:hover, .h2 a:hover, h3 a:hover, .h3 a:hover, h4 a:hover, .h4 a:hover, h5 a:hover, .h5 a:hover {
+    color: #373737; }
 
 h1, .h1 {
   font-size: 34px;
@@ -1172,10 +1195,11 @@ h1, .h1 {
   margin: 0 0 10px; }
 
 .page-title {
-  display: inline-block;
   transition: -webkit-transform 0.2s ease-out;
   transition: transform 0.2s ease-out;
-  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out; }
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+  text-align: center;
+  margin-bottom: 80px; }
 
 h2, .h2 {
   font-size: 28px;
@@ -1458,8 +1482,8 @@ input[type="radio"] {
 .btn,
 input[type="submit"],
 input[type="button"] {
-  background: #021B44;
-  border: 1px solid #021B44;
+  background: #204A7E;
+  border: 1px solid #204A7E;
   color: #FFF;
   text-transform: uppercase;
   font-family: "nevis", sans-serif;
@@ -1478,15 +1502,15 @@ input[type="button"] {
   .btn.btn-primary,
   input[type="submit"].btn-primary,
   input[type="button"].btn-primary {
-    background: #021B44; }
+    background: #204A7E; }
   .btn.btn-secondary,
   input[type="submit"].btn-secondary,
   input[type="button"].btn-secondary {
-    background: black; }
+    background: #0b1a2d; }
     .btn.btn-secondary:hover,
     input[type="submit"].btn-secondary:hover,
     input[type="button"].btn-secondary:hover {
-      background: #121212; }
+      background: #132b49; }
   .btn.btn-cancel,
   input[type="submit"].btn-cancel,
   input[type="button"].btn-cancel {
@@ -1536,7 +1560,7 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 
 .social-icons a {
   display: inline-block;
-  color: #222;
+  color: #FFF;
   padding: 5px; }
   .social-icons a:before {
     font-size: 20px;
@@ -1932,6 +1956,8 @@ on larger screens.
 ******************************************************************/
   html {
     font-size: 74%; }
+  .inner {
+    width: 1400px; }
   /*********************
 HERO
 *********************/

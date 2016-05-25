@@ -5,6 +5,8 @@ var gulp = require('gulp');
     coffee = require('gulp-coffee');
     sourcemaps = require('gulp-sourcemaps');
     notify = require("gulp-notify");
+    browserSync = require('browser-sync').create();
+    reload = browserSync.reload;
 
 gulp.task('sass', function () {
   gulp.src('./scss/style.scss')
@@ -37,7 +39,12 @@ gulp.task('concat-js', function() {
  
 //Watch task
 gulp.task('default',function() {
-    gulp.watch('./scss/*.scss',['sass']);
-    gulp.watch('./coffee/*.coffee',['coffee']);
-    gulp.watch('./js/*.js',['concat-js']);
+    browserSync.init({
+        host: "localhost:3000",
+        proxy: "roblake.dev",
+        browser: "firefoxdeveloperedition"
+    });
+    gulp.watch('./scss/*.scss',['sass']).on("change", reload);
+    gulp.watch('./coffee/*.coffee',['concat-js']);
+    gulp.watch("../**/*.php").on("change", reload);
 });

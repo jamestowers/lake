@@ -2,7 +2,9 @@
 /*********************
 ELEMENTS
 *********************/
-
+body{
+  background: $grey1;
+}
 .scrolled{
   .header #nav-header{
     background:$black;
@@ -20,7 +22,7 @@ ELEMENTS
 }
 
 #logo-svg{
-  max-width: 100%;
+  max-width: 600px;
   max-height: 100%;
   path, 
   polyline{
@@ -34,7 +36,7 @@ ELEMENTS
     path,
     polyline{
       fill: $white;
-      stroke:$color-primary;
+      stroke:$white;
     }
   }
 }
@@ -125,7 +127,6 @@ div#wrapper {
 }
 
 #content{
-  background:$white;
   display: flex;
   flex-direction: column;
   clear:both;
@@ -136,18 +137,20 @@ div#wrapper {
 section{
   &.page{
     min-height:400px;
-    border-bottom: 1px solid $grey6;
     padding: 60px 0;
-    h1{
-      color:$color-primary;
-    }
   }
 }
 .home{
   section{
     &.page{
+      position: relative;
+      .hero-container{
+        position: absolute;
+        top:0;
+        left:0;
+        z-index: -1;
+      }
       &:nth-child(odd){
-        background:$color-primary;
         color:$white;
         h1, h2, h3, h4{
           color:$white;

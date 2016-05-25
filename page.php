@@ -1,10 +1,9 @@
 <?php get_header(); ?>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    <?php dropshop_hero_image( $banner_text = "" );?>
 
     <section <?php post_class( ); ?> >
-
+        <?php dropshop_hero_image( $banner_text = "" );?>
         <?php if( get_post_meta( $post->ID, '_dropshop_page_layout_choice', true) == '1col' ){
             get_template_part( '/partials/page-content', '1col' );
         } else{

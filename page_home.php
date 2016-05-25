@@ -27,12 +27,11 @@
     'order'   => 'ASC'
   ) );
   if ( $sections->have_posts() ) :     
-      while ($sections->have_posts()) : $sections->the_post();
-
-        dropshop_hero_image( $banner_text = "" );?>
+      while ($sections->have_posts()) : $sections->the_post();?>
         <section <?php body_class('page', $post->ID);?>>
-
+      
           <?php
+           dropshop_hero_image( $banner_text = "" );
           switch ($post->ID) {
 
             case 26: //NEWS

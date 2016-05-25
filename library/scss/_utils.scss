@@ -18,17 +18,15 @@ iframe{
 table{
   width: 100%;
   th{
-    background:$grey4;
     text-align: left;
     color:$white;
     cursor: pointer;
   }
   tr{
     &:nth-child(odd){
-      background:$grey7;
     }
     a{
-      color:$grey2;
+      color:$color-link;
     }
   }
 }

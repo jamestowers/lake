@@ -31,12 +31,6 @@ function dropshop_custom_image_sizes( $sizes ) {
 
 
 
-
-
-
-
-
-
 /*********************
 HERO IMAGE
 *********************/

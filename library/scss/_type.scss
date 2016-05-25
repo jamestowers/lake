@@ -29,7 +29,7 @@ body {
   font-family: $font-body;
   @include font-size(1.6);
   line-height: 1.4;
-  color:$grey2;
+  color:$white;
   text-rendering: optimizeLegibility;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
@@ -83,9 +83,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   font-family: $font-header;
   font-weight: $font-weight-normal;
   text-transform: uppercase;
-  color:$grey2;
   a{
-    color:$grey2;
     &:hover{
       color:$grey3;
     }
@@ -102,8 +100,9 @@ h1, .h1 {
   margin: 0 0 $padding;
 }
 .page-title{
-  display: inline-block;
   transition: transform 0.2s ease-out;
+  text-align: center;
+  margin-bottom: 80px;
 }
 
 h2, .h2 {

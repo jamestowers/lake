@@ -2,8 +2,8 @@
 $page_classes = get_post_meta( $post->ID, '_dropshop_page_class_custom_page_class', true);?>
 
 <div class="inner pad group full-height two-column <?php echo $page_classes;?>">
+  <h1 class="page-title"><?php the_title(); ?></h1>
   <div class="col6">
-    <h1 class="page-title"><?php the_title(); ?></h1>
     <div class="row">
       <?php echo get_post_meta( $post->ID, '_dropshop_pre_content_pre_content', true);?>
     </div>
