@@ -22,7 +22,7 @@
   // Get pages query
   $sections = new WP_Query( array( 
     'post_type' => 'page', 
-    'post__in' => array( 10, 12, 14, 16, 8, 18 ),
+    'post__in' => array( 10, 12, 14, 16, 8, 56, 18 ),
     'orderby' => 'menu_order title',
     'order'   => 'ASC'
   ) );
@@ -34,7 +34,7 @@
            dropshop_hero_image( $banner_text = "" );
           switch ($post->ID) {
 
-            case 26: //NEWS
+            case 8: //NEWS
               echo '<div class="inner pad group full-height">';
                 echo '<h1 class="page-title">News</h1>';
                 $news_posts = new WP_Query( array( 

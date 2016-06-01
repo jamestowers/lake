@@ -485,7 +485,7 @@ table {
     color: #FFF;
     cursor: pointer; }
   table tr a {
-    color: #204A7E; }
+    color: #CE5F18; }
 
 section {
   clear: both; }
@@ -590,12 +590,14 @@ section {
   text-align: center; }
 
 .alignleft, img.alignleft {
-  margin-right: 1.5em;
+  margin-right: 20px;
+  margin-bottom: 20px;
   display: inline;
   float: left; }
 
 .alignright, img.alignright {
-  margin-left: 1.5em;
+  margin-left: 20px;
+  margin-bottom: 20px;
   display: inline;
   float: right; }
 
@@ -650,7 +652,7 @@ GRID
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #000;
+  background-color: #FFF;
   opacity: 0.6;
   position: absolute;
   top: 0;
@@ -698,8 +700,11 @@ body {
 .scrolled #content {
   margin-top: 44px; }
 
+#logo {
+  max-width: 600px; }
+
 #logo-svg {
-  max-width: 600px;
+  max-width: 100%;
   max-height: 100%; }
   #logo-svg path,
   #logo-svg polyline {
@@ -712,7 +717,7 @@ body {
   #logo-svg.animated path,
   #logo-svg.animated polyline {
     fill: #FFF;
-    stroke: #FFF; }
+    stroke: #E8E8E8; }
 
 #scroll-arrow {
   position: absolute;
@@ -1075,14 +1080,14 @@ nav {
     nav.pagination ul.page-numbers li {
       display: inline-block; }
       nav.pagination ul.page-numbers li .page-numbers {
-        background: #204A7E;
+        background: #CE5F18;
         color: #FFF;
         padding: 7px 15px;
         display: block; }
         nav.pagination ul.page-numbers li .page-numbers a {
           color: #FFF; }
         nav.pagination ul.page-numbers li .page-numbers.current {
-          background: #0b1a2d; }
+          background: #73350d; }
   nav ul {
     margin: 0;
     padding: 0; }
@@ -1097,13 +1102,21 @@ nav {
 .gallery dl {
   float: left;
   width: 100%;
-  margin: 5px 0; }
+  margin: 5px 0;
+  overflow: hidden; }
+  .gallery dl:hover img {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1); }
 
 .gallery br {
   display: none; }
 
 .gallery img {
-  display: block; }
+  display: block;
+  transition: -webkit-transform 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  transition: transform 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  transition: transform 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96), -webkit-transform 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96); }
 
 @media only screen and (min-width: 768px) {
   .gallery dl {
@@ -1157,14 +1170,14 @@ small,
 LINK STYLES
 *********************/
 a {
-  color: #204A7E;
+  color: #CE5F18;
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.47, 0.94, 0.4, 1.96);
   /* on hover */
   /* on click */
   /* mobile tap color */ }
   a:hover {
-    color: #275b9a; }
+    color: #e67024; }
   a:link {
     /*
     this highlights links on iPhones/iPads.
@@ -1482,8 +1495,8 @@ input[type="radio"] {
 .btn,
 input[type="submit"],
 input[type="button"] {
-  background: #204A7E;
-  border: 1px solid #204A7E;
+  background: #CE5F18;
+  border: 1px solid #CE5F18;
   color: #FFF;
   text-transform: uppercase;
   font-family: "nevis", sans-serif;
@@ -1502,15 +1515,15 @@ input[type="button"] {
   .btn.btn-primary,
   input[type="submit"].btn-primary,
   input[type="button"].btn-primary {
-    background: #204A7E; }
+    background: #CE5F18; }
   .btn.btn-secondary,
   input[type="submit"].btn-secondary,
   input[type="button"].btn-secondary {
-    background: #0b1a2d; }
+    background: #73350d; }
     .btn.btn-secondary:hover,
     input[type="submit"].btn-secondary:hover,
     input[type="button"].btn-secondary:hover {
-      background: #132b49; }
+      background: #934411; }
   .btn.btn-cancel,
   input[type="submit"].btn-cancel,
   input[type="button"].btn-cancel {
@@ -1781,10 +1794,10 @@ NAVIGATION STYLES
       nav#nav-header .nav li {
         border-bottom: none; }
         nav#nav-header .nav li a {
-          color: #FFF;
-          font-size: 20px;
-          font-size: 2rem;
-          padding: 10px 14px;
+          color: #E8E8E8;
+          font-size: 16px;
+          font-size: 1.6rem;
+          padding: 10px;
           margin: 0 10px;
           overflow: hidden;
           position: relative;

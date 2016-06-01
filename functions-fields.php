@@ -219,7 +219,7 @@ function dropshop_embeds_metabox() {
 
 	$cmb_group->add_group_field( $group_field_id, array(
 		'name' => __( 'Embed code', 'cmb2' ),
-		'desc' => __( 'Paste the embed code in here', 'cmb2' ),
+		'desc' => __( 'Paste the embed code, YouTube url or Vimeo url in here', 'cmb2' ),
 		'id'   => $prefix . 'embed_code',
 		'type' => 'textarea_code',
 	) );

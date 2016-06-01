@@ -103,7 +103,7 @@ function dropshop_hero_image( $headline_text = "" ){
         echo '<div class="video-wrapper">';
         switch( get_post_meta( $post->ID, '_dropshop_hero_video_type', true) ) {
           case 'vimeo':
-            echo '<iframe id="vimeo-player" data-video-id="' . dropshop_get_vimeoid_from_url($vid_url) . '" src="" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+            echo '<iframe id="vimeo-player" src="https://player.vimeo.com/video/' . dropshop_get_vimeoid_from_url($vid_url) . '?byline=0&portrait=0" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
             break;
 
           case 'youtube':

@@ -146,12 +146,14 @@ section{
 
 // IMAGE ALIGNMENT
 .alignleft, img.alignleft { 
-  margin-right: 1.5em; 
+  margin-right: 20px;
+  margin-bottom: 20px; 
   display: inline; 
   float: left; 
 }
 .alignright, img.alignright { 
-  margin-left: 1.5em; 
+  margin-left: 20px;
+  margin-bottom: 20px; 
   display: inline; 
   float: right; 
 }
