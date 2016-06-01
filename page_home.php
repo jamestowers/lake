@@ -20,21 +20,28 @@
 
   <?php
   // Get pages query
+  
+  //$pages = array( 10, 12, 14, 16, 8, 56, 18 ); // Local
+  //$newsPageId = 8; // Local
+  
+  $pages = array( 20, 23, 24, 56, 19, 25, 26 ); // live
+  $newsPageId = 19; // Live
+
   $sections = new WP_Query( array( 
     'post_type' => 'page', 
-    'post__in' => array( 10, 12, 14, 16, 8, 56, 18 ),
+    'post__in' => $pages,
     'orderby' => 'menu_order title',
     'order'   => 'ASC'
   ) );
   if ( $sections->have_posts() ) :     
       while ($sections->have_posts()) : $sections->the_post();?>
-        <section <?php body_class('page', $post->ID);?>>
+        <section <?php body_class('page', $post->ID);?> data-slug="<?php echo $post->post_name;?>">
       
           <?php
            dropshop_hero_image( $banner_text = "" );
           switch ($post->ID) {
 
-            case 8: //NEWS
+            case $newsPageId: //NEWS
               echo '<div class="inner pad group full-height">';
                 echo '<h1 class="page-title">News</h1>';
                 $news_posts = new WP_Query( array( 
