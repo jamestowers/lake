@@ -49,7 +49,7 @@
     <link rel="shortcut icon" href="favicon.png">
 
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,800,400italic' rel='stylesheet' type='text/css'>
 
 
 		<title><?php wp_title(''); ?></title>

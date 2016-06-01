@@ -127,6 +127,7 @@ function extra_class_names( $classes ) {
 MENUS & NAVIGATION
 *********************/
 
+
 function dropshop_theme_support() {
   add_theme_support( 'post-thumbnails' );
   add_theme_support('automatic-feed-links');
@@ -145,7 +146,7 @@ function dropshop_nav_header() {
   // display the wp3 menu if available
   wp_nav_menu(array(
     'container' => false,                           // remove nav container
-    'container_class' => 'menu group',           // class of container (should you choose to use it)
+    'container_class' => '',           // class of container (should you choose to use it)
     'menu' => __( 'Header Nav', 'dropshoptheme' ),  // nav name
     'menu_class' => 'nav group',         // adding custom nav class
     'theme_location' => 'nav-header',                 // where it's located in the theme
@@ -195,10 +196,12 @@ function dropshop_footer_links_fallback() {
 }
 
 
-
-
-
-
+function dropshop_custom_nav_attributes ( $atts, $item, $args ) {
+    log_it($item);
+    $atts['data-page-id'] = $item->object_id;
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'dropshop_custom_nav_attributes', 10, 3 );
 
 
 

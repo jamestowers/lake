@@ -77,7 +77,6 @@ nav{
     transition: transform 0.2s ease-out;
     z-index: -1;
     li{
-      border-bottom: 1px solid $grey4;
       &.current-menu-item{
         a{
           background:$grey4;

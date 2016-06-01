@@ -985,11 +985,11 @@ a.slider-nav {
     font-size: 30px;
     font-size: 3rem;
     color: #FFF;
-    font-family: "nevis", sans-serif; }
+    font-family: Montserrat, "Open Sans", sans-serif; }
   .hero-banner h2 {
     font-size: 12px;
     font-size: 1.2rem;
-    font-family: "Source Sans Pro", sans-serif; }
+    font-family: "Open Sans", sans-serif; }
 
 /* MOBILE ONLY KEEP IT SMALL!! */
 /* =========
@@ -1060,19 +1060,17 @@ nav {
     transition: transform 0.2s ease-out;
     transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
     z-index: -1; }
-    nav#nav-header li {
-      border-bottom: 1px solid #555; }
-      nav#nav-header li.current-menu-item a {
-        background: #555; }
-      nav#nav-header li a {
-        font-family: "nevis", sans-serif; }
-        nav#nav-header li a:hover {
-          color: #FFF; }
-      nav#nav-header li.menu-item-has-children {
-        /* It's probabaly best to just hide sub nav and link straihght to the top level page. Y
+    nav#nav-header li.current-menu-item a {
+      background: #555; }
+    nav#nav-header li a {
+      font-family: Montserrat, "Open Sans", sans-serif; }
+      nav#nav-header li a:hover {
+        color: #FFF; }
+    nav#nav-header li.menu-item-has-children {
+      /* It's probabaly best to just hide sub nav and link straihght to the top level page. Y
         You can show the child pages there on mobiles. */ }
-        nav#nav-header li.menu-item-has-children ul.sub-menu {
-          display: none; }
+      nav#nav-header li.menu-item-has-children ul.sub-menu {
+        display: none; }
   nav#nav-footer {
     display: none; }
   nav.pagination ul.page-numbers {
@@ -1151,7 +1149,7 @@ html {
   font-size: 62%; }
 
 body {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.4;
@@ -1190,8 +1188,8 @@ a {
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  font-family: "nevis", sans-serif;
-  font-weight: 300;
+  font-family: Montserrat, "Open Sans", sans-serif;
+  font-weight: 800;
   text-transform: uppercase;
   /*
   if you're going to use webfonts, be sure to check your weights
@@ -1351,8 +1349,8 @@ textarea {
   border: 1px solid #E8E8E8;
   -webkit-appearance: none;
   border-radius: 0;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 300;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
   font-size: 12px;
   font-size: 1.2rem;
   padding: 10px 10px 10px;
@@ -1384,7 +1382,7 @@ textarea {
   input[type="number"]::-webkit-input-placeholder,
   textarea::-webkit-input-placeholder {
     color: #222;
-    font-weight: 300; }
+    font-weight: 400; }
   input[type="text"]::-moz-placeholder,
   input[type="email"]::-moz-placeholder,
   input[type="password"]::-moz-placeholder,
@@ -1394,7 +1392,7 @@ textarea {
   input[type="number"]::-moz-placeholder,
   textarea::-moz-placeholder {
     color: #222;
-    font-weight: 300; }
+    font-weight: 400; }
   input[type="text"]:-ms-input-placeholder,
   input[type="email"]:-ms-input-placeholder,
   input[type="password"]:-ms-input-placeholder,
@@ -1404,7 +1402,7 @@ textarea {
   input[type="number"]:-ms-input-placeholder,
   textarea:-ms-input-placeholder {
     color: #222;
-    font-weight: 300; }
+    font-weight: 400; }
   input[type="text"]:disabled, input[type="text"][readonly],
   input[type="email"]:disabled,
   input[type="email"][readonly],
@@ -1499,8 +1497,8 @@ input[type="button"] {
   border: 1px solid #CE5F18;
   color: #FFF;
   text-transform: uppercase;
-  font-family: "nevis", sans-serif;
-  font-weight: 600;
+  font-family: Montserrat, "Open Sans", sans-serif;
+  font-weight: 800;
   font-size: 16px;
   font-size: 1.6rem;
   padding: 10px 5px;
@@ -1537,7 +1535,7 @@ input[type="button"] {
     border-radius: 2px;
     font-size: 12px;
     font-size: 1.2rem;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Open Sans", sans-serif;
     text-transform: none; }
 
 /*
@@ -1881,7 +1879,7 @@ HERO
         -ms-transform: translateX(-50%) translateY(110px);
             transform: translateX(-50%) translateY(110px); }
     #top-banner nav#nav-header a {
-      font-weight: 600; }
+      font-weight: 800; }
     #top-banner nav#nav-header .social-icons li {
       border: none; }
     #top-banner nav#nav-header .social-icons a {

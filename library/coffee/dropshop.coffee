@@ -17,14 +17,12 @@ class @Dropshop
       dropshop.$body.toggleClass 'slide-from-right'
       false
 
-    @$doc.on 'click', '#nav-header a', (e) ->
-      e.preventDefault()
-      href = $(e.target).attr 'href'
-      if href.length
-        pathname = href.pathname
-        console.log pathname
-        target = $('[data-slug="' + pathname + '"]')
+    @$doc.on 'click', '#nav-header a', ->
+      pageId = $(this).data 'page-id'
+      if pageId
+        target = $('section[data-page-id="' + pageId + '"]')
         $('html, body').animate { scrollTop: target.offset().top }, 1000
+      false
 
     @$doc.on 'click', '.share-fb', ->
       url = this.href

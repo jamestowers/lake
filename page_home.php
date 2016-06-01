@@ -21,11 +21,11 @@
   <?php
   // Get pages query
   
-  //$pages = array( 10, 12, 14, 16, 8, 56, 18 ); // Local
-  //$newsPageId = 8; // Local
+  $pages = array( 10, 12, 14, 16, 8, 56, 18 ); // Local
+  $newsPageId = 8; // Local
   
-  $pages = array( 20, 23, 24, 56, 19, 25, 26 ); // live
-  $newsPageId = 19; // Live
+  //$pages = array( 20, 23, 24, 56, 19, 25, 26 ); // live
+  //$newsPageId = 19; // Live
 
   $sections = new WP_Query( array( 
     'post_type' => 'page', 
@@ -35,7 +35,7 @@
   ) );
   if ( $sections->have_posts() ) :     
       while ($sections->have_posts()) : $sections->the_post();?>
-        <section <?php body_class('page', $post->ID);?> data-slug="<?php echo $post->post_name;?>">
+        <section <?php post_class('page', $post->ID);?> data-page-id="<?php echo $post->ID;?>">
       
           <?php
            dropshop_hero_image( $banner_text = "" );
