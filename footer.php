@@ -1,9 +1,5 @@
 
 					</div> <!-- close content -->
-
-				<div id="curtain" class="">
-					<div></div>
-				</div>
 				
 				<footer class="footer group">
 						

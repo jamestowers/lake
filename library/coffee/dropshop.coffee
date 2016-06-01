@@ -6,7 +6,6 @@ class @Dropshop
     @youTube = new YouTubePlayer()
     @$body = $('body')
     @windowHeightMargin = 0
-    @$curtain = $('#curtain')
     @init()
 
   init: ->
@@ -17,6 +16,15 @@ class @Dropshop
     @$doc.on 'click', 'a#menu-toggle', ->
       dropshop.$body.toggleClass 'slide-from-right'
       false
+
+    @$doc.on 'click', '#nav-header a', (e) ->
+      e.preventDefault()
+      href = $(e.target).attr 'href'
+      if href.length
+        pathname = href.pathname
+        console.log pathname
+        target = $('[data-slug="' + pathname + '"]')
+        $('html, body').animate { scrollTop: target.offset().top }, 1000
 
     @$doc.on 'click', '.share-fb', ->
       url = this.href
@@ -54,7 +62,6 @@ class @Dropshop
 
     @$doc.on animEndEventName, '#logo-svg path#R', ->
       $(this).parent().attr('class', 'animated')
-
 
   onFullLoad: ->
     console.log '[Dropshop] Page fully loaded'

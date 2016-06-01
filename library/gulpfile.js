@@ -31,7 +31,7 @@ gulp.task('coffee', function () {
     .pipe(gulp.dest('./js'));
 });
 
-gulp.task('concat-js', function() {
+gulp.task('concat-js', ['coffee'], function() {
   return gulp.src(['./js/youtube.js', './js/dropshop.js', './js/scripts.js'])
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./js/'));
@@ -46,5 +46,6 @@ gulp.task('default',function() {
     });
     gulp.watch('./scss/*.scss',['sass']).on("change", reload);
     gulp.watch('./coffee/*.coffee',['concat-js']);
+    gulp.watch('./js/all.js').on("change", reload);
     gulp.watch("../**/*.php").on("change", reload);
 });

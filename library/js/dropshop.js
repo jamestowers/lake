@@ -6,7 +6,6 @@
       this.youTube = new YouTubePlayer();
       this.$body = $('body');
       this.windowHeightMargin = 0;
-      this.$curtain = $('#curtain');
       this.init();
     }
 
@@ -17,6 +16,19 @@
       this.$doc.on('click', 'a#menu-toggle', function() {
         dropshop.$body.toggleClass('slide-from-right');
         return false;
+      });
+      this.$doc.on('click', '#nav-header a', function(e) {
+        var href, pathname, target;
+        e.preventDefault();
+        href = $(e.target).attr('href');
+        if (href.length) {
+          pathname = href.pathname;
+          console.log(pathname);
+          target = $('[data-slug="' + pathname + '"]');
+          return $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+        }
       });
       this.$doc.on('click', '.share-fb', function() {
         var url;
