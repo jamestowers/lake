@@ -717,7 +717,7 @@ body {
   #logo-svg.animated path,
   #logo-svg.animated polyline {
     fill: #FFF;
-    stroke: #E8E8E8; }
+    stroke: #555; }
 
 #scroll-arrow {
   position: absolute;
