@@ -823,6 +823,9 @@ section.page {
     top: 0;
     left: 0;
     z-index: 0; }
+    .home section.page .hero-container + .inner {
+      position: relative;
+      z-index: 1; }
   .home section.page:nth-child(odd) {
     color: #FFF; }
     .home section.page:nth-child(odd) h1, .home section.page:nth-child(odd) h2, .home section.page:nth-child(odd) h3, .home section.page:nth-child(odd) h4 {
@@ -1169,7 +1172,11 @@ body {
   text-rendering: optimizeLegibility;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-hyphens: none;
+     -moz-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none; }
 
 small,
 .small {

@@ -156,6 +156,10 @@ section{
         top:0;
         left:0;
         z-index: 0;
+        & + .inner{
+          position: relative;
+          z-index: 1;
+        }
       }
       &:nth-child(odd){
         color:$white;
