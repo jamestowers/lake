@@ -65,7 +65,9 @@ if ( !function_exists( 'dropshop_load_scripts' ) ) {
      
       wp_enqueue_script( 'modernizr' );
       wp_enqueue_script( 'jquery' );
-      wp_enqueue_script( 'fastclick' );wp_enqueue_script( 'dropshop' );
+      wp_enqueue_script( 'picturefill' );
+      wp_enqueue_script( 'fastclick' );
+      wp_enqueue_script( 'dropshop' );
 
       wp_localize_script( 'dropshop', 'ajax', array(
         'ajax_url' => admin_url( 'admin-ajax.php' )
