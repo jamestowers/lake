@@ -67,9 +67,12 @@
           <a href="<?php echo get_bloginfo('url');?>" id="logo"><?php echo logo();?></a>
 
           <?php dropshop_social_icons();?>
-          <nav role="navigation" id="nav-header">
-            <?php dropshop_nav_header(); ?>
-          </nav>
+
+          <?php if( !is_front_page() ){
+              echo '<nav role="navigation" id="nav-header">';
+                dropshop_nav_header();
+              echo '</nav>';
+          } ?>
         </header>
 
   			<div id="content" class="group">

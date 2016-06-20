@@ -5,6 +5,7 @@ class @Dropshop
     @$doc = $(document)
     @youTube = new YouTubePlayer()
     @$body = $('body')
+    @$nav = $('#nav-header')
     @windowHeightMargin = 0
     @init()
 
@@ -96,10 +97,12 @@ class @Dropshop
   setWidths:->
     console.log '[Dropshop] setting page dims'
     @sizes = 
-      windowWidth: $(window).width()
-      windowHeight: $(window).height()
-      headerHeight: $('header.header').outerHeight() || 0
+      windowWidth  : $(window).width()
+      windowHeight : $(window).height()
+      headerHeight : $('header.header').outerHeight() || 0
+      navTop       : @$nav.offset().top
     @isMobile = @sizes.windowWidth < 768
+
     #@setWrapperHeight()
 
   showLoadingAnimation: ->
@@ -182,6 +185,13 @@ class @Dropshop
       dropshop.$body.addClass 'scrolled'
     else
       dropshop.$body.removeClass 'scrolled'
+
+    if window.latestKnownScrollY > (dropshop.sizes.navTop + 48)
+      if !dropshop.$nav.hasClass 'fixed'
+        console.log 'yes'
+        dropshop.$nav.addClass 'fixed'
+    else
+      dropshop.$nav.removeClass 'fixed'
 
     dropshop.$embeds.each (i, el) ->
       el = $(el)

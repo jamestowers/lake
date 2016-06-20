@@ -197,7 +197,7 @@ function dropshop_footer_links_fallback() {
 
 
 function dropshop_custom_nav_attributes ( $atts, $item, $args ) {
-    log_it($item);
+    //log_it($item);
     $atts['data-page-id'] = $item->object_id;
     return $atts;
 }

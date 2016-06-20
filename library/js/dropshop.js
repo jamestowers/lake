@@ -5,6 +5,7 @@
       this.$doc = $(document);
       this.youTube = new YouTubePlayer();
       this.$body = $('body');
+      this.$nav = $('#nav-header');
       this.windowHeightMargin = 0;
       this.init();
     }
@@ -128,7 +129,8 @@
       this.sizes = {
         windowWidth: $(window).width(),
         windowHeight: $(window).height(),
-        headerHeight: $('header.header').outerHeight() || 0
+        headerHeight: $('header.header').outerHeight() || 0,
+        navTop: this.$nav.offset().top
       };
       return this.isMobile = this.sizes.windowWidth < 768;
     };
@@ -228,6 +230,14 @@
         dropshop.$body.addClass('scrolled');
       } else {
         dropshop.$body.removeClass('scrolled');
+      }
+      if (window.latestKnownScrollY > (dropshop.sizes.navTop + 48)) {
+        if (!dropshop.$nav.hasClass('fixed')) {
+          console.log('yes');
+          dropshop.$nav.addClass('fixed');
+        }
+      } else {
+        dropshop.$nav.removeClass('fixed');
       }
       dropshop.$embeds.each(function(i, el) {
         el = $(el);

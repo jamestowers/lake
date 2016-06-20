@@ -1877,7 +1877,16 @@ HERO
     left: 50%;
     -webkit-transform: translateX(-50%) translateY(110px);
         -ms-transform: translateX(-50%) translateY(110px);
-            transform: translateX(-50%) translateY(110px); }
+            transform: translateX(-50%) translateY(110px);
+    transition: background 0.2s ease-in; }
+    #top-banner nav#nav-header.fixed {
+      background: #000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      -webkit-transform: translateX(0) translateY(0);
+          -ms-transform: translateX(0) translateY(0);
+              transform: translateX(0) translateY(0); }
     #top-banner nav#nav-header a {
       font-weight: 800; }
     #top-banner nav#nav-header .social-icons li {

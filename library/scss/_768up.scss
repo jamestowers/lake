@@ -186,6 +186,14 @@ HERO
     top:50%;
     left:50%;
     transform: translateX(-50%) translateY(110px);
+    transition: background 0.2s ease-in;
+    &.fixed{
+      background: $black;
+      position: fixed;
+      top:0;
+      left:0;
+      transform: translateX(0) translateY(0);
+    }
     a{
       //color:$color-primary;
       font-weight: $font-weight-bold;
