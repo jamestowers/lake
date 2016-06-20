@@ -58,9 +58,9 @@
     }));
   };
 
-  window.dropshop = new Dropshop();
-
   window.fullyLoaded = false;
+
+  window.dropshop = new Dropshop();
 
   lastTime = 0;
 

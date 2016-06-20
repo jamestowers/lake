@@ -60,19 +60,19 @@
 	</head>
 
 	<body>
-    <a href="#" id="menu-toggle" class="no-ajaxy"><span></span></a>
-		<div id="wrapper" class="group">      
-      <div <?php body_class();?> >
-        <header class="header group" role="banner">
-          <a href="<?php echo get_bloginfo('url');?>" id="logo"><?php echo logo();?></a>
+    <a href="#" id="menu-toggle"><span></span></a>
+	<div id="wrapper" class="group">      
+        <div <?php body_class();?> >
+            <header class="header group" role="banner">
+                <a href="<?php echo get_bloginfo('url');?>" id="logo"><?php echo logo();?></a>
 
-          <?php dropshop_social_icons();?>
+                <?php dropshop_social_icons();?>
 
-          <?php if( !is_front_page() ){
-              echo '<nav role="navigation" id="nav-header">';
-                dropshop_nav_header();
-              echo '</nav>';
-          } ?>
-        </header>
+                <?php if( wp_is_mobile() ){
+                    echo '<nav role="navigation" id="nav-header">';
+                        dropshop_nav_header();
+                    echo '</nav>';
+                } ?>
+            </header>
 
   			<div id="content" class="group">

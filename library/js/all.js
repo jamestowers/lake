@@ -101,14 +101,73 @@
     Dropshop.prototype.init = function() {
       FastClick.attach(document.body);
       this.setWidths();
-      this.onPageLoad();
+      return this.onPageLoad();
+    };
+
+    Dropshop.prototype.onFullLoad = function() {
+      console.log('[Dropshop] Page fully loaded');
+      window.fullyLoaded = true;
+      return this.onScroll();
+    };
+
+    Dropshop.prototype.onPageFetch = function() {
+      console.log('[Dropshop] fetching new page');
+      return this.showLoadingAnimation();
+    };
+
+    Dropshop.prototype.onPageLoad = function() {
+      console.log('[Dropshop] onPageLoad');
+      this.setEventListeners();
+      this.$body.removeClass('slide-from-right');
+      $('.hero-container').css({
+        'height': this.sizes.windowHeight + 'px'
+      });
+      this.$allMods = $("[data-animate]");
+      this.$embeds = $(".embeds");
+      this.videos = $('video');
+      if (window.fullyLoaded) {
+        this.onScroll();
+      }
+      this.hideLoadingAnimation();
+      this.preloadBgImage();
+      if (this.isMobile) {
+        $('nav#nav-header:not(#top-banner nav#nav-header)').prependTo('body');
+      }
+      return setTimeout((function(_this) {
+        return function() {
+          return $.each(_this.$embeds, function(i, el) {
+            el = $(el);
+            if (el.attr('data-status') === 'pending') {
+              return el.renderEmbeds();
+            }
+          });
+        };
+      })(this), 3000);
+    };
+
+    Dropshop.prototype.setWidths = function() {
+      console.log('[Dropshop] setting page dims');
+      this.sizes = {
+        windowWidth: $(window).width(),
+        windowHeight: $(window).height(),
+        headerHeight: $('header.header').outerHeight() || 0,
+        navTop: this.$nav.offset().top
+      };
+      return this.isMobile = this.sizes.windowWidth < 768;
+    };
+
+    Dropshop.prototype.setEventListeners = function() {
+      console.log('whaaaaat');
+      console.log('[Dropshop] setting event listeners');
       this.$doc.on('click', 'a#menu-toggle', function() {
         dropshop.$body.toggleClass('slide-from-right');
+        console.log('sdf');
         return false;
       });
       this.$doc.on('click', '#nav-header a', function() {
         var pageId, target;
         pageId = $(this).data('page-id');
+        dropshop.$body.removeClass('slide-from-right');
         if (pageId) {
           target = $('section[data-page-id="' + pageId + '"]');
           $('html, body').animate({
@@ -168,59 +227,6 @@
       return this.$doc.on(animEndEventName, '#logo-svg path#R', function() {
         return $(this).parent().attr('class', 'animated');
       });
-    };
-
-    Dropshop.prototype.onFullLoad = function() {
-      console.log('[Dropshop] Page fully loaded');
-      window.fullyLoaded = true;
-      this.onScroll();
-      return this.$curtain = $('#curtain');
-    };
-
-    Dropshop.prototype.onPageFetch = function() {
-      console.log('[Dropshop] fetching new page');
-      return this.showLoadingAnimation();
-    };
-
-    Dropshop.prototype.onPageLoad = function() {
-      console.log('[Dropshop] onPageLoad');
-      this.setEventListeners();
-      this.$body.removeClass('slide-from-right');
-      $('.hero-container').css({
-        'height': this.sizes.windowHeight + 'px'
-      });
-      this.$allMods = $("[data-animate]");
-      this.$embeds = $(".embeds");
-      this.videos = $('video');
-      if (window.fullyLoaded) {
-        this.onScroll();
-      }
-      this.hideLoadingAnimation();
-      this.preloadBgImage();
-      if (this.isMobile) {
-        $('nav#nav-header:not(#top-banner nav#nav-header)').prependTo('body');
-      }
-      return setTimeout((function(_this) {
-        return function() {
-          return $.each(_this.$embeds, function(i, el) {
-            el = $(el);
-            if (el.attr('data-status') === 'pending') {
-              return el.renderEmbeds();
-            }
-          });
-        };
-      })(this), 3000);
-    };
-
-    Dropshop.prototype.setWidths = function() {
-      console.log('[Dropshop] setting page dims');
-      this.sizes = {
-        windowWidth: $(window).width(),
-        windowHeight: $(window).height(),
-        headerHeight: $('header.header').outerHeight() || 0,
-        navTop: this.$nav.offset().top
-      };
-      return this.isMobile = this.sizes.windowWidth < 768;
     };
 
     Dropshop.prototype.showLoadingAnimation = function() {};
@@ -321,7 +327,6 @@
       }
       if (window.latestKnownScrollY > (dropshop.sizes.navTop + 48)) {
         if (!dropshop.$nav.hasClass('fixed')) {
-          console.log('yes');
           dropshop.$nav.addClass('fixed');
         }
       } else {
@@ -353,16 +358,12 @@
           }
         });
       }
-      dropshop.$allMods.each(function(i, el) {
+      return dropshop.$allMods.each(function(i, el) {
         el = $(el);
         if (el.visible(true)) {
           return el.addClass('animate');
         }
       });
-    };
-
-    Dropshop.prototype.setEventListeners = function() {
-      return console.log('[Dropshop] setting event listeners');
     };
 
     return Dropshop;
@@ -433,9 +434,9 @@
     }));
   };
 
-  window.dropshop = new Dropshop();
-
   window.fullyLoaded = false;
+
+  window.dropshop = new Dropshop();
 
   lastTime = 0;
 

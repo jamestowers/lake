@@ -13,13 +13,65 @@ class @Dropshop
     FastClick.attach(document.body);
     @setWidths()
     @onPageLoad()
+    
+  onFullLoad: ->
+    console.log '[Dropshop] Page fully loaded'
+    window.fullyLoaded = true
+    @onScroll()
 
+  onPageFetch: ->
+    console.log '[Dropshop] fetching new page'
+    @showLoadingAnimation()
+
+  onPageLoad: ->
+    console.log '[Dropshop] onPageLoad'
+    @setEventListeners()
+    @$body.removeClass 'slide-from-right'
+    $('.hero-container').css
+      'height' : @sizes.windowHeight + 'px'
+    #$('nav#nav-header a.clicked').removeClass 'clicked'
+    @$allMods = $("[data-animate]")
+    @$embeds = $(".embeds")
+    @videos = $('video')
+    @onScroll() if window.fullyLoaded # Trgger scroll to show visible embedsand videos
+    @hideLoadingAnimation()
+    @preloadBgImage()
+    if @isMobile
+      $('nav#nav-header:not(#top-banner nav#nav-header)').prependTo('body')
+    setTimeout(=>
+      $.each @$embeds, (i, el)=>
+        el = $(el)
+        el.renderEmbeds() if el.attr('data-status') is 'pending'
+    , 3000)
+    
+
+  setWidths:->
+    console.log '[Dropshop] setting page dims'
+    @sizes = 
+      windowWidth  : $(window).width()
+      windowHeight : $(window).height()
+      headerHeight : $('header.header').outerHeight() || 0
+      navTop       : @$nav.offset().top
+    @isMobile = @sizes.windowWidth < 768
+
+    #@setWrapperHeight()
+    #
+  ######################
+  ## EVENT LISTENERS
+  ######################
+  setEventListeners: ->
+
+    console.log 'whaaaaat'
+    # Use this for setting new event listeners that need to be set after ajax page loads
+    console.log '[Dropshop] setting event listeners'
     @$doc.on 'click', 'a#menu-toggle', ->
       dropshop.$body.toggleClass 'slide-from-right'
+      console.log 'sdf'
       false
 
     @$doc.on 'click', '#nav-header a', ->
       pageId = $(this).data 'page-id'
+      dropshop.$body.removeClass 'slide-from-right'
       if pageId
         target = $('section[data-page-id="' + pageId + '"]')
         $('html, body').animate { scrollTop: target.offset().top }, 1000
@@ -61,49 +113,10 @@ class @Dropshop
 
     @$doc.on animEndEventName, '#logo-svg path#R', ->
       $(this).parent().attr('class', 'animated')
-
-  onFullLoad: ->
-    console.log '[Dropshop] Page fully loaded'
-    window.fullyLoaded = true
-    @onScroll()
-    @$curtain = $('#curtain')
-
-  onPageFetch: ->
-    console.log '[Dropshop] fetching new page'
-    @showLoadingAnimation()
-
-  onPageLoad: ->
-    console.log '[Dropshop] onPageLoad'
-    @setEventListeners()
-    @$body.removeClass 'slide-from-right'
-    $('.hero-container').css
-      'height' : @sizes.windowHeight + 'px'
-    #$('nav#nav-header a.clicked').removeClass 'clicked'
-    @$allMods = $("[data-animate]")
-    @$embeds = $(".embeds")
-    @videos = $('video')
-    @onScroll() if window.fullyLoaded # Trgger scroll to show visible embedsand videos
-    @hideLoadingAnimation()
-    @preloadBgImage()
-    if @isMobile
-      $('nav#nav-header:not(#top-banner nav#nav-header)').prependTo('body')
-    setTimeout(=>
-      $.each @$embeds, (i, el)=>
-        el = $(el)
-        el.renderEmbeds() if el.attr('data-status') is 'pending'
-    , 3000)
     
-
-  setWidths:->
-    console.log '[Dropshop] setting page dims'
-    @sizes = 
-      windowWidth  : $(window).width()
-      windowHeight : $(window).height()
-      headerHeight : $('header.header').outerHeight() || 0
-      navTop       : @$nav.offset().top
-    @isMobile = @sizes.windowWidth < 768
-
-    #@setWrapperHeight()
+    # @$doc.on 'click', '.expand-text', ->
+    #   $(this).parent().toggleClass 'expanded'
+    #   false
 
   showLoadingAnimation: ->
     
@@ -188,7 +201,6 @@ class @Dropshop
 
     if window.latestKnownScrollY > (dropshop.sizes.navTop + 48)
       if !dropshop.$nav.hasClass 'fixed'
-        console.log 'yes'
         dropshop.$nav.addClass 'fixed'
     else
       dropshop.$nav.removeClass 'fixed'
@@ -217,21 +229,5 @@ class @Dropshop
     dropshop.$allMods.each (i, el) ->
       el = $(el)
       el.addClass 'animate' if el.visible(true)
-    return
-
-
-
-
-  ######################
-  ## EVENT LISTENERS
-  ######################
-  setEventListeners: ->
-    # Use this for setting new event listeners that need to be set after ajax page loads
-    console.log '[Dropshop] setting event listeners'
-    
-    
-    # @$doc.on 'click', '.expand-text', ->
-    #   $(this).parent().toggleClass 'expanded'
-    #   false
 
 

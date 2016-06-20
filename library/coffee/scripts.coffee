@@ -44,8 +44,8 @@ $.fn.renderEmbeds = ->
       $el.append code
       $el.attr('data-status', 'loaded')
 
-window.dropshop = new Dropshop()
 window.fullyLoaded = false
+window.dropshop = new Dropshop()
 
 
 

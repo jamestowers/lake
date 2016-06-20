@@ -10,6 +10,7 @@ Responsive slide out menu
   }
   nav#nav-header{
     //transform: translateX(100%);
+    z-index: 0;
   }
   a#menu-toggle{
     span{
@@ -32,16 +33,16 @@ a#menu-toggle{
   height: 24px;
   padding: 10px;
   position: fixed;
-  right: 4px;
-  top: 20px;
+  right: 10px;
+  top: 26px;
   transform: translateY(-50%);
   z-index: 11;
   span,
   span:before,
   span:after{
-    background:$grey6;
+    background:$white;
     height:4px;
-    width:20px;
+    width:24px;
     display:block;
   }
   span{

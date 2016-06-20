@@ -61,20 +61,11 @@ if ( !function_exists( 'dropshop_load_scripts' ) ) {
       wp_register_script( 'jquery', "//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js", '', '' , true);
       wp_register_script( 'picturefill', get_bloginfo('template_directory') . "/library/js/vendor/picturefill.min.js", 'jquery', '', true);
       wp_register_script( 'fastclick', get_bloginfo('template_directory') . "/library/js/vendor/fastclick.js", 'jquery', '', true);
-      /*wp_register_script( 'smoothstate', get_bloginfo('template_directory') . "/library/js/vendor/jquery.smoothState.js", array('jquery', 'picturefill'), '', true);
-      wp_register_script( 'dropshop', get_bloginfo('template_directory') . "/library/js/dropshop.js", array('jquery', 'picturefill', 'smoothstate'), '', true);
-      wp_register_script( 'transitions', get_bloginfo('template_directory') . "/library/js/transitions.js", array('dropshop'), '', true);*/
       wp_register_script( 'dropshop', get_bloginfo('template_directory') . "/library/js/all.js", array('jquery'), '', true);
-      wp_register_script( 'scripts', get_bloginfo('template_directory') . "/library/js/scripts.js", array('dropshop'), '', true);
-
+     
       wp_enqueue_script( 'modernizr' );
       wp_enqueue_script( 'jquery' );
-      wp_enqueue_script( 'fastclick' );
-      /*wp_enqueue_script( 'smoothstate' );
-      wp_enqueue_script( 'picturefill' );*/
-      wp_enqueue_script( 'dropshop' );
-      //wp_enqueue_script( 'transitions' );
-      wp_enqueue_script( 'scripts');
+      wp_enqueue_script( 'fastclick' );wp_enqueue_script( 'dropshop' );
 
       wp_localize_script( 'dropshop', 'ajax', array(
         'ajax_url' => admin_url( 'admin-ajax.php' )
