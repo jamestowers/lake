@@ -822,7 +822,7 @@ section.page {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1; }
+    z-index: 0; }
   .home section.page:nth-child(odd) {
     color: #FFF; }
     .home section.page:nth-child(odd) h1, .home section.page:nth-child(odd) h2, .home section.page:nth-child(odd) h3, .home section.page:nth-child(odd) h4 {
