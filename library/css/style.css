@@ -825,11 +825,15 @@ section.page {
     .home section.page:nth-child(odd) .social-icons a {
       color: #FFF; }
 
-.single-column .embeds iframe {
-  float: left;
-  width: 48%;
-  margin: 1%; }
-
+/* .single-column{
+  .embeds{
+    iframe{
+      float: left;
+      width: 48%;
+      margin: 1%;
+    }
+  }
+} */
 .sidebar {
   background: #F5F5F5;
   height: 100%; }
@@ -1099,7 +1103,7 @@ nav {
 
 .gallery dl {
   float: left;
-  width: 100%;
+  width: 50%;
   margin: 5px 0;
   overflow: hidden; }
   .gallery dl:hover img {
