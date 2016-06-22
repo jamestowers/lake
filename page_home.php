@@ -4,9 +4,11 @@
     <section>
       <div id="top-banner">
         <?php $banner_text = '<img src="' . get_bloginfo('template_directory') . '/library/images/logo.svg" />'; dropshop_hero_image( logo()  );?>
-        <nav role="navigation" id="nav-header">
-          <?php dropshop_nav_header(); ?>
-        </nav>
+        <?php if( !wp_is_mobile() ){ ?>
+          <nav role="navigation" id="nav-header">
+            <?php dropshop_nav_header(); ?>
+          </nav>
+        <?php }?>
 
 
         <?php get_template_part('partials/scroll-arrow');?>
