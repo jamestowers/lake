@@ -1,5 +1,5 @@
 <footer class="group article-footer small">
-  <?php dropshop_share_buttons();?>
+  <?php dropshop_share_buttons(get_the_permalink());?>
   <?php the_tags( '<p class="tags pull-right"><span class="tags-title">' . __( 'Tags:', 'dropshoptheme' ) . '</span> ', ', ', '</p>' ); ?>
 </footer>
 
