@@ -20,7 +20,8 @@
 		<!-- APPLE TAGS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+    
+    <meta name="google-site-verification" content="-R7_4pXCiCiCBxxnXVC66Q65J6N_dEvojjNIbrYX4_c" />
 
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/library/images/icons/apple-touch-icon-60x60.png">
